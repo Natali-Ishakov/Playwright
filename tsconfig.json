@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES6",               // אפשר גם לשדרג ל-ESNext אם נדרש
     "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "./dist",            // תיקיית הפלט בה ייווצרו קבצי ה-JS המהודרים
+    "rootDir": "./src",            // תיקיית הקוד המקורי
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "skipLibCheck": true,          // ממליץ להוסיף כדי להימנע מבעיות עם סוגים בספריות חיצוניות
+    "forceConsistentCasingInFileNames": true   // שומר על עקביות בשמות קבצים
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],       // הגדרה הזו אומרת ל-TypeScript להתמקד בקבצים ב-src
+  "exclude": ["node_modules"]       // אפשר להוסיף אם רוצים להימנע מעבודה עם node_modules
 }

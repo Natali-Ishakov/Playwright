@@ -10,4 +10,5 @@ test('should add a todo item', async ({ page }) => {
   // אמת שהמשימה הוספה
   const todoText = await page.textContent('.todo-list li');
   expect(todoText).toContain('ללמוד אוטומציה');
+  
 });

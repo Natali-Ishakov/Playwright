@@ -1,0 +1,30 @@
+name: Playwright Tests CI
+
+on:
+  push:
+    branches:
+      - main  # הרץ את הבדיקות כאשר יש push ל-main
+  pull_request:
+    branches:
+      - main  # הרץ גם כשיש pull request ל-main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # בחר מערכת הפעלה שבה תריץ את הבדיקות
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  # בחר גרסה מתאימה של Node.js
+
+    - name: Install dependencies
+      run: |
+        npm install
+        npx playwright install  # הורד את הדפדפנים של Playwright
+
+    - name: Run tests
+      run: npm run test  # הרץ את הבדיקות שנכתבו
